@@ -8,12 +8,12 @@ html {
 }
 body {
   background: #fff;
-  padding: 0 16px;
+  /* padding: 0 16px; */
 }
 
 header {
   background-color: #f5ba13;
-  margin: auto -16px;
+  /* margin: auto -16px; */
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
@@ -67,6 +67,10 @@ footer p {
   outline: none;
 }
 
+.form{
+  padding: 0px 16px;
+}
+
 form.create-note {
   position: relative;
   width: 480px;
@@ -98,4 +102,42 @@ form.create-note textarea {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 650px) {
+  form.create-note {
+    width: 380px; 
+  }
+}
+
+@media screen and (max-width: 450px) {
+  form.create-note {
+    width: 340px; 
+  }
+}
+
+@media screen and (max-width: 370px) {
+  form.create-note {
+    width: 300px; 
+  }
+}
+
+@media screen and (max-width: 330px) {
+  form.create-note {
+    width: 260px; 
+  }
+}
+
+@media screen and (max-width: 300px) {
+  form.create-note {
+    width: 220px; 
+  }
+}
+
+@media screen and (max-width: 250px) {
+  form.create-note {
+    width: 200px; 
+  }
 }

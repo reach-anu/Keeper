@@ -30,7 +30,7 @@ function CreateNote(props) {
   }
 
   return (
-    <div>
+    <div className="form">
       <form className="create-note">
         <input
           name="title"
