@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {IoAddCircle} from "react-icons/io5"
+import axios from "axios";
 
 function CreateNote(props) {
   const [note, setNote] = useState({
@@ -9,7 +10,6 @@ function CreateNote(props) {
 
   function handleChange(event) {
     const { name, value } = event.target;
-
     setNote(prevNote => {
       return {
         ...prevNote,
@@ -18,15 +18,24 @@ function CreateNote(props) {
     });
   }
 
-  function submitNote(event) {
-    if(note!=" "){
-    props.onAdd(note);
-    }
-    setNote({
-      title: "",
-      content: ""
-    });
+  async function submitNote(event){
     event.preventDefault();
+    if(note.title==="")
+    {
+      alert("Please enter a valid Title");
+      return;
+    }
+    await axios.post(`${process.env.REACT_APP_BASE_URL}/notes`, note )
+    .then((response) => 
+    { 
+      console.log(response)
+      props.onAdd(note);
+      setNote({
+        title: "",
+        content: ""
+    })
+    })
+    .catch(err=>console.log(err))
   }
 
   return (

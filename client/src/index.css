@@ -25,7 +25,9 @@ header h1 {
 }
 
 footer {
-  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   bottom: 0;
   width: 100%;
@@ -102,6 +104,9 @@ form.create-note textarea {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
+}
+.notesContainer{
+  min-height: 55vh;
 }
 
 /* Media Queries */
