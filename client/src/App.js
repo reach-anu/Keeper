@@ -16,18 +16,25 @@ function App() {
   }, [])
 
   function addNote(newNote) {
+
     setNotes(prevNotes => {
       return [...prevNotes, newNote];
     });
   }
 
-  // function deleteNote(id) {
-  //   setNotes(prevNotes => {
-  //     return prevNotes.filter((noteItem, index) => {
-  //       return index !== id;
-  //     });
-  //   });
-  // }
+  function deleteNote(id) {
+    console.log(id);
+    axios.post(`${process.env.REACT_APP_BASE_URL}/notes/${id}`)
+    .then((response)=>{
+      console.log(response);
+    }).catch((err)=>{
+      console.log(err);
+    });
+
+    setNotes( notes.filter((noteItem) => id !== noteItem._id) );
+
+  }
+  
   return (
     <div >
       <Header />
@@ -37,10 +44,10 @@ function App() {
         return (
           <Note
             key={index}
-            id={index}
+            id={noteItem._id}
             title={noteItem.title}
             content={noteItem.content}
-            // onDelete={deleteNote}
+            onDelete={deleteNote}
           />
         );
       })}

@@ -22,7 +22,7 @@ function CreateNote(props) {
     event.preventDefault();
     if(note.title==="")
     {
-      alert("Please enter a valid Title");
+      alert("Please enter a valid title");
       return;
     }
     await axios.post(`${process.env.REACT_APP_BASE_URL}/notes`, note )
@@ -33,14 +33,14 @@ function CreateNote(props) {
       setNote({
         title: "",
         content: ""
-    })
+      })
     })
     .catch(err=>console.log(err))
   }
 
   return (
     <div className="form">
-      <form className="create-note">
+      <form className="create-note" >
         <input
           name="title"
           onChange={handleChange}
