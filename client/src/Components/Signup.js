@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import "../Styles/Signup.css"
+import toast from 'react-hot-toast'
 
 const Signup = () => {
   const [name,setName]=useState('');
@@ -19,7 +20,7 @@ const Signup = () => {
     .then(result => {
       if(result.data=="EXISTS")
       {
-        alert("This Email already exists !!");
+        toast.error("This Email already exists !!");
         setName('');
         setEmail('');
         setPassword('');
@@ -28,7 +29,7 @@ const Signup = () => {
         navigate('/homePage')
       }
     })
-    .catch(err => console.log(err))
+    .catch(err => toast.error(err))
   }
   return (
     <div className='loginFormContainer'>

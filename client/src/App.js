@@ -5,12 +5,14 @@ import HomePage from "./Pages/HomePage";
 import LoginPage from "./Pages/LoginPage";
 import SignupPage from "./Pages/SignupPage";
 import { Route, Routes } from "react-router-dom";
+import {Toaster} from 'react-hot-toast'
 
 function App() {
 
   return (
     <div >
       <Header />
+      <Toaster position="bottom-right" toastOptions={{duration : 2000}} />
       <Routes>
         <Route path='/' element={<LoginPage/>} />
         <Route path='/homepage' element={<HomePage/>} />

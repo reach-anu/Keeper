@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios' 
 import "../Styles/Login.css"
+import toast from 'react-hot-toast'
 
 const Login = () => {
 
@@ -21,14 +22,15 @@ const Login = () => {
       if(result.data=="EXISTS")
       {
         navigate('/homePage')
+        toast.success("Successfully Logged in")
       }
       else{
-        alert("Please Sign Up first! Thankyou")
+        toast.error("Please Sign Up first !!")
         setEmail('');
         setPassword('');
       }
     })
-    .catch(err => console.log(err));
+    .catch(err => toast.error(err));
   }
 
   return (
