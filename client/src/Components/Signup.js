@@ -27,6 +27,7 @@ const Signup = () => {
       }
       else{
         navigate('/homePage')
+        toast.success("Succesfully Signed in");
       }
     })
     .catch(err => toast.error(err))

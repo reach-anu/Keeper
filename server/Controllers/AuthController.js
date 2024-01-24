@@ -2,14 +2,21 @@ const registerModel = require('../models/registerModel.js');
 const noteModel = require('../models/noteModel.js');
 
 const login = async(req,res) =>{
-    const {email}=req.body;
+    const {email,password}=req.body;
     const check = await registerModel.findOne({email: email})
     if(!check)
     {
         res.json("NOTEXISTS");
     }
     else{
-        res.json("EXISTS");
+        const pwdcheck = await registerModel.findOne({password: password})
+        if(pwdcheck)
+        {
+            res.json("EXISTS");
+        }
+        else{
+            res.json("Wrongpwd");
+        }
     }
 }
 

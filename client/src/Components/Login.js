@@ -24,6 +24,10 @@ const Login = () => {
         navigate('/homePage')
         toast.success("Successfully Logged in")
       }
+      else if(result.data=="Wrongpwd")
+      {
+        toast.error("The pasword is incorrect");
+      }
       else{
         toast.error("Please Sign Up first !!")
         setEmail('');
