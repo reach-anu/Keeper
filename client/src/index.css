@@ -12,15 +12,19 @@ body {
 }
 
 header {
-  background-color: #f5ba13;
+  background-color: #8e6645;
   /* margin: auto -16px; */
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
 
+input:focus::placeholder {
+  color: transparent;
+}
+
 header h1 {
   color: #F5F5F5;
-  font-family: "McLaren";
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: 200;
 }
 
@@ -106,7 +110,7 @@ form.create-note textarea {
   outline: none;
 }
 .notesContainer{
-  min-height: 55vh;
+  min-height: 70vh;
 }
 
 /* Media Queries */
@@ -146,3 +150,13 @@ form.create-note textarea {
     width: 200px; 
   }
 }
+
+a, a:visited{
+  text-decoration: none;
+  color: black;
+}
+button:hover{
+  color:#8e6645
+}
+
+

@@ -1,57 +1,21 @@
-import React, {useState,useEffect} from "react";
+import React from "react";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
-import CreateNote from "./Components/CreateNote";
-import Note from "./Components/Note";
-import axios from 'axios'
+import HomePage from "./Pages/HomePage";
+import LoginPage from "./Pages/LoginPage";
+import SignupPage from "./Pages/SignupPage";
+import { Route, Routes } from "react-router-dom";
+
 function App() {
-  const [notes, setNotes] = useState([]);
 
-  useEffect(()=> {
-      axios.get(`${process.env.REACT_APP_BASE_URL}/notes`).
-      then((response) => {
-        setNotes(response.data);
-      }).
-    catch((e) => console.log(e));
-  }, [])
-
-  function addNote(newNote) {
-
-    setNotes(prevNotes => {
-      return [...prevNotes, newNote];
-    });
-  }
-
-  function deleteNote(id) {
-    console.log(id);
-    axios.post(`${process.env.REACT_APP_BASE_URL}/notes/${id}`)
-    .then((response)=>{
-      console.log(response);
-    }).catch((err)=>{
-      console.log(err);
-    });
-
-    setNotes( notes.filter((noteItem) => id !== noteItem._id) );
-
-  }
-  
   return (
     <div >
       <Header />
-      <CreateNote onAdd={addNote} />
-      <div className="notesContainer">
-      {notes.map((noteItem, index) => {
-        return (
-          <Note
-            key={index}
-            id={noteItem._id}
-            title={noteItem.title}
-            content={noteItem.content}
-            onDelete={deleteNote}
-          />
-        );
-      })}
-      </div>
+      <Routes>
+        <Route path='/' element={<LoginPage/>} />
+        <Route path='/homepage' element={<HomePage/>} />
+        <Route path='/signup' element={<SignupPage/>} />
+      </Routes>
       <Footer />
     </div>
   );
