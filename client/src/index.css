@@ -4,16 +4,25 @@
   box-sizing: border-box;
 }
 html {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 body {
-  background: #fff;
-  /* padding: 0 16px; */
+  background-color: #000000e3;
+}
+
+form {
+  padding: 5px;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
 }
 
 header {
-  background-color: #8e6645;
-  /* margin: auto -16px; */
+  background-color: #323232;
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
@@ -23,8 +32,9 @@ input:focus::placeholder {
 }
 
 header h1 {
-  color: #F5F5F5;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #f5f5f5;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-weight: 200;
 }
 
@@ -41,19 +51,22 @@ footer {
 footer p {
   color: #ccc;
 }
+
 .note {
-  background: #fff;
+  background: #323232;
   border-radius: 7px;
-  box-shadow: 0 2px 5px #ccc;
   padding: 10px;
   width: 240px;
   margin: 16px;
   float: left;
+  color: white;
 }
+
 .note h1 {
   font-size: 1.1em;
   margin-bottom: 6px;
 }
+
 .note p {
   font-size: 1.1em;
   margin-bottom: 10px;
@@ -65,7 +78,7 @@ footer p {
   position: relative;
   float: right;
   margin-right: 10px;
-  color: #f5ba13;
+  color: white;
   border: none;
   width: 30px;
   height: 36px;
@@ -73,7 +86,7 @@ footer p {
   outline: none;
 }
 
-.form{
+.form {
   padding: 0px 16px;
 }
 
@@ -83,7 +96,7 @@ form.create-note {
   margin: 30px auto 20px auto;
   padding: 15px;
   border-radius: 7px;
-  box-shadow: 0 1px 5px rgb(138, 137, 137);
+  background-color: #323232;
 }
 form.create-note input,
 form.create-note textarea {
@@ -94,14 +107,16 @@ form.create-note textarea {
   font-size: 1.2em;
   font-family: inherit;
   resize: none;
+  background-color: #323232;
+  color: white;
 }
 .button {
   position: absolute;
   right: 18px;
   bottom: -18px;
-  background: #f5ba13;
-  color: #fff;
+  background: #000000e3;
   border: none;
+  color: #323232;
   border-radius: 50%;
   width: 36px;
   height: 36px;
@@ -109,54 +124,118 @@ form.create-note textarea {
   cursor: pointer;
   outline: none;
 }
-.notesContainer{
+.notesContainer {
   min-height: 70vh;
 }
 
-/* Media Queries */
+/* LOGIN AN SIGN UP */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 90vh;
+  position: relative;
+  color: white;
+}
+
+.formWrapper {
+  position: absolute;
+  left: calc(50% - 155px);
+  top: calc(50% -100px);
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 20px;
+  background-color: #323232;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  line-height: 25px;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+.formContainer h1 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.formContainer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.formContainer form input {
+  background-color: white;
+  border: 0.5px solid;
+  border-radius: 5px;
+  padding: 10px 20px 10px 10px;
+  cursor: pointer;
+}
+.formContainer form input:focus-visible {
+  outline: none;
+}
+.formContainer form button {
+  width: 90%;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #323232;
+  color: white;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.formContainer form button:hover {
+  color: #323232 !important;
+  background-color: white;
+  border: 1px solid #323232;
+}
+
+.loginLink {
+  width: 90%;
+}
+
+/* MEDIA QUERIES */
 
 @media screen and (max-width: 650px) {
   form.create-note {
-    width: 380px; 
+    width: 380px;
   }
 }
 
 @media screen and (max-width: 450px) {
   form.create-note {
-    width: 340px; 
+    width: 340px;
   }
 }
 
 @media screen and (max-width: 370px) {
   form.create-note {
-    width: 300px; 
+    width: 300px;
   }
 }
 
 @media screen and (max-width: 330px) {
   form.create-note {
-    width: 260px; 
+    width: 260px;
   }
 }
 
 @media screen and (max-width: 300px) {
   form.create-note {
-    width: 220px; 
+    width: 220px;
   }
 }
 
 @media screen and (max-width: 250px) {
   form.create-note {
-    width: 200px; 
+    width: 200px;
   }
 }
-
-a, a:visited{
-  text-decoration: none;
-  color: black;
-}
-button:hover{
-  color:#8e6645
-}
-
-

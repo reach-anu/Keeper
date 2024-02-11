@@ -1,15 +1,14 @@
-import React from 'react'
-import Login from "../Components/Login"
-import Loginbg from "../Assets/Loginbg.png"
-import "../Styles/Login.css"
+import React from "react";
+import Login from "../Components/Login";
 
 const LoginPage = () => {
   return (
-    <div className='loginContainer'>
-        <img src={Loginbg} style={{height:'90vh', width:'fit-content'}}/>
-        <div className='loginFormWrapper'><Login /></div>
+    <div className="container">
+      <div className="formWrapper">
+        <Login />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;
